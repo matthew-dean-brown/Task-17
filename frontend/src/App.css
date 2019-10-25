@@ -1,0 +1,74 @@
+table,
+th,
+td{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border: 1px ridge  purple;
+  background-color: a
+}
+h1,
+th,
+td{
+  color: aliceblue
+}
+table{
+  border-collapse: collapse;
+}
+
+input{
+  border: none;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+  color:white;
+}
+button{
+  background-image: linear-gradient(to bottom right,red,blue);
+  color: white;
+  border-style: ridge;
+  border-color: purple;
+  margin: 1%;
+  cursor: pointer;
+  height: 20px;
+  width: 50px;
+  outline-color: azure
+}
+.App{
+  text-align: center;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #0b315e;
+}
+
+@keyframes backgroundAnimate {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: -10000px;
+    top: -2000px;
+  }
+}
+
+#background {
+  background: url(back.png) repeat 50% 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  z-index: -1;
+  animation-name: backgroundAnimate;
+  animation-duration: 800s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
