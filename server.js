@@ -1,10 +1,9 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const fs = require('fs');
-const helmet = require('helmet')
-let web_projects = require('./web_projects.json')
-const path = require('path')
-const cors = require("cors")
+const helmet = require('helmet');
+let web_projects = require('./web_projects.json');
+const cors = require("cors");
 app.use(cors())
 app.use(helmet())
 
@@ -73,14 +72,15 @@ app.delete('/api', (req,res) => {
     })
 })
 
-const Port = process.env.Port || 8080;
-app.listen(Port)
-
-if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    app.use(express.static('frontend/build'));
-    // Handle React routing, return all requests to React app
-    app.get('/', function(req, res) {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-    });
+const path = require("path");
+if (process.env.NODE_ENV === "production") {  
+	app.use(express.static("frontend/build"));  
+	app.get("*", (req, res) => {    
+		res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));  
+	});
 }
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {  
+	console.log(`Server is listening on port ${PORT}`);
+});
